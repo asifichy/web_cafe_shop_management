@@ -1,0 +1,11 @@
+# Dockerfile-mysql
+FROM mysql:5.7
+
+# Set environment variables
+ENV MYSQL_DATABASE=food_db.sql
+ENV MYSQL_USER=admin
+ENV MYSQL_PASSWORD=admin123 
+ENV MYSQL_ROOT_PASSWORD=admin123
+
+# Expose port 3306
+EXPOSE 3306
