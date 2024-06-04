@@ -1,8 +1,0 @@
-version: '3.4'
-
-services:
-  webcafeshopmanagement:
-    image: webcafeshopmanagement
-    build:
-      context: .
-      dockerfile: ./Dockerfile

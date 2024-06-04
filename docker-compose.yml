@@ -1,28 +1,22 @@
 version: '3.8'
 
 services:
-  web:
+  php:
     build:
       context: .
-      dockerfile: Dockerfile-php
+      dockerfile: Dockerfile.php
     ports:
-      - "80:80"
+      - "8080:80"
     depends_on:
-      - db
-    environment:
-      - DB_HOST=db
-      - DB_USER=myuser
-      - DB_PASSWORD=mypassword
-      - DB_NAME=mydatabase
+      - mysql
 
-  db:
+  mysql:
     build:
       context: .
-      dockerfile: Dockerfile-mysql
+      dockerfile: Dockerfile.mysql
     environment:
-      MYSQL_ROOT_PASSWORD: rootpassword
-      MYSQL_DATABASE: mydatabase
-      MYSQL_USER: myuser
-      MYSQL_PASSWORD: mypassword
+      MYSQL_DATABASE: food_db
+      MYSQL_USER: root
+      MYSQL_PASSWORD: ""
     ports:
       - "3306:3306"

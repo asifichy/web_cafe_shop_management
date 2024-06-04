@@ -1,0 +1,16 @@
+# Dockerfile.mysql
+
+# Use the official MySQL image as a base
+FROM mysql:8.0
+
+# Set environment variables (change as necessary)
+#ENV MYSQL_ROOT_PASSWORD=rootpassword
+ENV MYSQL_DATABASE=food_db
+ENV MYSQL_USER=root
+ENV MYSQL_PASSWORD=""
+
+# Copy the SQL script into the container
+COPY food_db.sql /docker-entrypoint-initdb.d/
+
+# Expose port 3306
+EXPOSE 3306
